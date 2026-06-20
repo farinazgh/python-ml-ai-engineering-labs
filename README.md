@@ -1,2 +1,3 @@
-# python-ml-ai-engineering-labs
-Python Machine Learning &amp; AI Engineering Labs
+# Python Machine Learning & AI Engineering Labs
+
+Hands-on exercises, notes, and standalone Python applications from my machine learning, data science, and AI engineering learning path.
