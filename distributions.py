@@ -3,6 +3,7 @@ import numpy as np
 from scipy.stats import binom, expon, norm, poisson
 
 
+# Uniform distribution = every possible outcome gets the same chance.
 def plot_uniform():
     values = np.random.uniform(-10.0, 10.0, 100_000)
 
@@ -23,6 +24,7 @@ def plot_normal():
     plt.show()
 
 
+# Binomial distribution = number of successes in a fixed number of yes/no attempts.
 def plot_binomial():
     n = 10
     p = 0.5
@@ -35,6 +37,7 @@ def plot_binomial():
     plt.show()
 
 
+# Exponential distribution = waiting time until the next random event.
 def plot_exponential():
     x = np.arange(0, 10, 0.001)
 
@@ -45,6 +48,7 @@ def plot_exponential():
     plt.show()
 
 
+# Poisson distribution = number of random events in a fixed window of time or space.
 def plot_poisson():
     mu = 500
     x = np.arange(400, 601)
