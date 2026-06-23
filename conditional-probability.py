@@ -3,6 +3,7 @@ from numpy import random
 
 def simulate_customers(number_of_customers):
     print("simulate_customers")
+    # The purpose of this line is to make sure that we get consistent results every time we run this code.
     random.seed(0)
 
     totals = {20: 0, 30: 0, 40: 0, 50: 0, 60: 0, 70: 0}
@@ -10,7 +11,7 @@ def simulate_customers(number_of_customers):
     purchases = {20: 0, 30: 0, 40: 0, 50: 0, 60: 0, 70: 0}
 
     total_purchases = 0
-
+    # In Python, _ means: I don’t really care what that value is on each iteration.
     for _ in range(number_of_customers):
 
         age_decade = random.choice([20, 30, 40, 50, 60, 70])
@@ -55,6 +56,12 @@ def print_results(totals, purchases, total_purchases, population_size):
 
     p_purchase = calculate_purchase_probability(total_purchases, population_size)
 
+    # probability of something happening given something else happened
+    # P(A, B)
+    # P(B | A)
+    # P(B | A) = P(A, B) / P(A)
+
+    # P(E | F) ≈ P(E)
     p_30s_and_purchase = calculate_joint_probability(
         purchases, age_decade, population_size
     )
