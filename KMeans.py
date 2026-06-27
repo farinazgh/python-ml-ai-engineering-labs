@@ -3,9 +3,18 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import scale
 
-# Given fake people with income and age, can the algorithm discover natural groups/clusters by itself
 # N = total number of people/data points
 # k = number of clusters/groups
+
+# create fake people with income and age
+# ↓
+# scale/normalize income and age
+# ↓
+# ask K-Means to find 5 groups
+# ↓
+# print the assigned cluster labels
+# ↓
+# plot the original data colored by cluster label
 
 
 def create_clustered_data(number_of_points, number_of_clusters):
