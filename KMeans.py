@@ -1,7 +1,8 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import scale
+
 
 # N = total number of people/data points
 # k = number of clusters/groups
