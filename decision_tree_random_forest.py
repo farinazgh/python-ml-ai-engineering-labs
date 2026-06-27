@@ -1,4 +1,7 @@
+from io import StringIO
+
 import pandas as pd
+import pydot
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import export_text
@@ -93,7 +96,28 @@ def main():
     print(export_text(decision_tree, feature_names=features))
 
     # -----------------------------
-    # 5. Train Random Forest model
+    # 5. Export Decision Tree as PNG
+    # -----------------------------
+
+    dot_data = StringIO()
+
+    tree.export_graphviz(
+        decision_tree,
+        out_file=dot_data,
+        feature_names=features,
+        class_names=["Not Hired", "Hired"],
+        filled=True,
+        rounded=True,
+        special_characters=True,
+    )
+
+    graph = pydot.graph_from_dot_data(dot_data.getvalue())[0]
+    graph.write_png("decision_tree.png")
+
+    print("Decision tree visualization saved to decision_tree.png")
+
+    # -----------------------------
+    # 6. Train Random Forest model
     # -----------------------------
     # A random forest is an ensemble model.
     random_forest = RandomForestClassifier(
@@ -104,7 +128,7 @@ def main():
     random_forest.fit(X, y)
 
     # -----------------------------
-    # 6. Predict new candidates
+    # 7. Predict new candidates
     # -----------------------------
 
     employed_candidate = pd.DataFrame(
