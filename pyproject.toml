@@ -11,6 +11,7 @@ dependencies = [
     "numpy>=2.4.6",
     "pandas>=3.0.3",
     "pandas-stubs>=3.0.3.260530",
+    "pydot>=4.0.1",
     "scikit-learn>=1.9.0",
     "scipy>=1.18.0",
     "scipy-stubs>=1.18.0.0",
