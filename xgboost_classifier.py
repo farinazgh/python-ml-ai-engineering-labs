@@ -1,7 +1,8 @@
+import xgboost as xgb
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-import xgboost as xgb
+
 
 ## Given measurements of an iris flower, can we predict which iris species it belongs to? ##
 # load Iris dataset
