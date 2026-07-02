@@ -16,5 +16,6 @@ dependencies = [
     "scipy>=1.18.0",
     "scipy-stubs>=1.18.0.0",
     "statsmodels>=0.14.6",
+    "xgboost>=3.3.0",
     "xlrd>=2.0.2",
 ]
