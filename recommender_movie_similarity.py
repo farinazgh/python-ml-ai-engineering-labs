@@ -64,15 +64,11 @@ def build_user_movie_matrix(ratings):
     )
 
 
-# how many people rated each movie, and what the average rating was.
-# Group all rows by movie title.
-# For each movie title, look at its rating column.
-# Then calculate:
-# - size = how many ratings this movie has
-# - mean = average rating for this movie
-# title                size    mean
-# Star Wars (1977)    3       4.67
-# Toy Story (1995)    2       4.50
+# Calculate simple statistics for each movie.
+# rating_count tells us how many users rated the movie.
+# average_rating tells us the movie's average score.
+# In this recommender, rating_count is important because it lets us filter out
+# movies with too few ratings, where correlations may be misleading.
 def calculate_movie_statistics(ratings):
 
     movie_stats = ratings.groupby("title")["rating"].agg(["size", "mean"])
@@ -81,9 +77,11 @@ def calculate_movie_statistics(ratings):
     return movie_stats
 
 
-# +1  = very similar rating pattern
-#  0  = no clear relationship
-# -1  = opposite rating pattern
+# Recommend movies similar to one chosen target movie.
+# Unlike the personalized recommender, this function does not use one user's full taste profile.
+# It compares the target movie's ratings column with every other movie's ratings column,
+# keeps only sufficiently popular movies, removes the target movie itself,
+# and returns the most similar movies.
 def recommend_similar_movies(
     movie_ratings,
     movie_stats,
